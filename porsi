@@ -1,0 +1,18 @@
+section .text
+	global _ft_strcmp
+_ft_strcmp:
+	mov rcx, -1
+while:
+	inc rcx
+	mov dl, byte[rdi + rcx]
+	mov bl, byte[rsi + rcx]
+	cmp  dl , bl
+	je while
+	mov r, byte[rdi + rcx]
+	sub al, byte[rsi + rcx]
+	cmp  al, 0 
+	jl neg
+	ret
+neg:
+	neg al
+	ret
